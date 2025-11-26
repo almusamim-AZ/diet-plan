@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>نظام الكوتش ياسين</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Amiri:wght@700&family=Tajawal&display=swap');
+
+    body {
+      font-family: "Tajawal", sans-serif;
+      direction: rtl;
+      background: linear-gradient(135deg, #0b0f0c, #1a2b1f);
+      color: #d0f5d6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: rgba(26, 43, 31, 0.8);
+      backdrop-filter: blur(6px);
+      padding: 20px;
+      text-align: center;
+      color: #b2ffb2;
+      font-size: 28px;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      text-shadow: 0 0 10px #a8ffb0;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-top: 40px;
+      color: #a8ffb0;
+      font-family: "Amiri", serif;
+    }
+
+    .section {
+      margin: 30px;
+      animation: fadeIn 1.2s ease-in-out;
+    }
+
+    .card {
+      background: rgba(22, 34, 25, 0.6);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 25px;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s, box-shadow 0.3s;
+      animation: slideUp 0.8s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.6);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      color: #b2ffb2;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .card ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(178,255,178,0.2);
+    }
+
+    .note {
+      background: rgba(58, 31, 31, 0.7);
+      border: 1px solid #ff8080;
+      padding: 15px;
+      border-radius: 12px;
+      line-height: 1.8;
+      margin-top: 15px;
+      color: #ffd0d0;
+      box-shadow: 0 0 12px rgba(255,0,0,0.3);
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    /* أنيميشن */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    @keyframes slideUp {
+      from {transform: translateY(20px); opacity: 0;}
+      to {transform: translateY(0); opacity: 1;}
+    }
+  </style>
+</head>
+<body>
+
+  <header>نظام ياسين</header>
+
+  <div class="section">
+    <h2>نظام ياسين</h2>
+
+    <div class="card">
+      <h3>🍳 وجبة 1 (الفطور)</h3>
+      <ul>
+        <li>3 بيض + 2 بياض</li>
+        <li>قطعة جبن قليل الدسم</li>
+        <li>خضار</li>
+        <li>شاي أو قهوة بدون سكر</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🍗 وجبة 2 (الغداء)</h3>
+      <ul>
+        <li>200غ لحم/سمك/دجاج</li>
+        <li>1 كوب سلطه كبيرة</li>
+        <li>ملعقة زيت زيتون</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🏋️ وجبة 3 (قبل التمرين)</h3>
+      <ul>
+        <li>150غ صدر دجاج</li>
+        <li>100غ بطاطس أو نصف كوب رز</li>
+        <li>خضار</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>💪 بعد التمرين مباشرة</h3>
+      <ul>
+        <li>سكوب بروتين</li>
+        <li>موزة أو 20 غرام عسل</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🥗 وجبة 4 (العشاء)</h3>
+      <ul>
+        <li>اختيار واحد:</li>
+        <li>تونة + خضار</li>
+        <li>200غ دجاج + خضار</li>
+        <li>زبادي بروتين</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h3>🥛 وجبة خفيفة قبل النوم (اختياري)</h3>
+      <ul>
+        <li>زبادي يوناني</li>
+        <li>2 بيضة مسلوقة</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🚫 الممنوعات خلال 8 أسابيع</h2>
+      <div class="note">
+        <ul>
+          <li>الحلويات</li>
+          <li>العصيرات</li>
+          <li>الخبز الأبيض</li>
+          <li>المقليات</li>
+          <li>الوجبات السريعه</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
