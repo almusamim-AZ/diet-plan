@@ -28,11 +28,10 @@
       text-shadow: 0 0 10px #a8ffb0;
     }
 
-    h1, h2 {
-      text-align: center;
-      margin-top: 40px;
-      color: #a8ffb0;
+    h2 {
       font-family: "Amiri", serif;
+      color: #a8ffb0;
+      margin: 0;
     }
 
     .section {
@@ -40,20 +39,44 @@
       animation: fadeIn 1.2s ease-in-out;
     }
 
+    details {
+      background: rgba(22, 34, 25, 0.6);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+      overflow: hidden;
+    }
+
+    summary {
+      cursor: pointer;
+      padding: 15px 20px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #b2ffb2;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(26, 43, 31, 0.8);
+    }
+
+    summary::after {
+      content: "▼";
+      font-size: 16px;
+      transition: transform 0.3s;
+    }
+
+    details[open] summary::after {
+      transform: rotate(-180deg);
+    }
+
     .card {
       background: rgba(22, 34, 25, 0.6);
       backdrop-filter: blur(10px);
       border-radius: 16px;
       padding: 20px;
-      margin-bottom: 25px;
+      margin: 15px;
       box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
-      transition: transform 0.3s, box-shadow 0.3s;
-      animation: slideUp 0.8s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 24px rgba(0,0,0,0.6);
+      animation: slideUp 0.5s ease;
     }
 
     .card h3 {
@@ -76,16 +99,19 @@
       border-bottom: 1px solid rgba(178,255,178,0.2);
     }
 
-    .note {
-      background: rgba(58, 31, 31, 0.7);
-      border: 1px solid #ff8080;
-      padding: 15px;
-      border-radius: 12px;
-      line-height: 1.8;
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 10px;
       margin-top: 15px;
-      color: #ffd0d0;
-      box-shadow: 0 0 12px rgba(255,0,0,0.3);
-      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    .grid div {
+      background: rgba(255,255,255,0.1);
+      border-radius: 5px;
+      text-align: center;
+      padding: 5px;
+      font-size: 20px;
     }
 
     /* أنيميشن */
@@ -104,95 +130,119 @@
 
   <header>نظام ياسين</header>
 
+  <!-- النظام الغذائي -->
   <div class="section">
-    <h2>نظام ياسين</h2>
+    <details>
+      <summary><h2>🍽️ نظام ياسين</h2></summary>
+      <div class="card">
+        <h3>🍳 وجبة 1 (الفطور)</h3>
+        <ul>
+          <li>3 بيض + 2 بياض</li>
+          <li>قطعة جبن قليل الدسم</li>
+          <li>خضار</li>
+          <li>شاي أو قهوة بدون سكر</li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <h3>🍳 وجبة 1 (الفطور)</h3>
-      <ul>
-        <li>3 بيض + 2 بياض</li>
-        <li>قطعة جبن قليل الدسم</li>
-        <li>خضار</li>
-        <li>شاي أو قهوة بدون سكر</li>
-      </ul>
-    </div>
+      <div class="card">
+        <h3>🍗 وجبة 2 (الغداء)</h3>
+        <ul>
+          <li>200غ لحم/سمك/دجاج</li>
+          <li>1 كوب سلطه كبيرة</li>
+          <li>ملعقة زيت زيتون</li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <h3>🍗 وجبة 2 (الغداء)</h3>
-      <ul>
-        <li>200غ لحم/سمك/دجاج</li>
-        <li>1 كوب سلطه كبيرة</li>
-        <li>ملعقة زيت زيتون</li>
-      </ul>
-    </div>
+      <div class="card">
+        <h3>🏋️ وجبة 3 (قبل التمرين)</h3>
+        <ul>
+          <li>150غ صدر دجاج</li>
+          <li>100غ بطاطس أو نصف كوب رز</li>
+          <li>خضار</li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <h3>🏋️ وجبة 3 (قبل التمرين)</h3>
-      <ul>
-        <li>150غ صدر دجاج</li>
-        <li>100غ بطاطس أو نصف كوب رز</li>
-        <li>خضار</li>
-      </ul>
-    </div>
+      <div class="card">
+        <h3>💪 بعد التمرين مباشرة</h3>
+        <ul>
+          <li>سكوب بروتين</li>
+          <li>موزة أو 20 غرام عسل</li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <h3>💪 بعد التمرين مباشرة</h3>
-      <ul>
-        <li>سكوب بروتين</li>
-        <li>موزة أو 20 غرام عسل</li>
-      </ul>
-    </div>
+      <div class="card">
+        <h3>🥗 وجبة 4 (العشاء)</h3>
+        <ul>
+          <li>اختيار واحد:</li>
+          <li>تونة + خضار</li>
+          <li>200غ دجاج + خضار</li>
+          <li>زبادي بروتين</li>
+        </ul>
+      </div>
 
-    <div class="card">
-      <h3>🥗 وجبة 4 (العشاء)</h3>
-      <ul>
-        <li>اختيار واحد:</li>
-        <li>تونة + خضار</li>
-        <li>200غ دجاج + خضار</li>
-        <li>زبادي بروتين</li>
-      </ul>
-    </div>
-
-    <div class="card">
-      <h3>🥛 وجبة خفيفة قبل النوم (اختياري)</h3>
-      <ul>
-        <li>زبادي يوناني</li>
-        <li>2 بيضة مسلوقة</li>
-      </ul>
-    </div>
-
-   
-    </div>
-
-  </div>
-<!-- متابعة الشهر الأول -->
-<div class="section">
-  <h2>📅 الشهر الأول</h2>
-
-  <!-- متابعة الوزن -->
-  <div class="card">
-    <h3>📝 متابعة الوزن</h3>
-    <ul>
-      <li>الأسبوع الأول: لم يتم تسجيل وزن حاليا</li>
-      <li>الأسبوع الثاني: لم يتم تسجيل وزن حاليا</li>
-      <li>الأسبوع الثالث: لم يتم تسجيل وزن حاليا</li>
-      <li>الأسبوع الرابع: لم يتم تسجيل وزن حاليا</li>
-    </ul>
+      <div class="card">
+        <h3>🥛 وجبة خفيفة قبل النوم (اختياري)</h3>
+        <ul>
+          <li>زبادي يوناني</li>
+          <li>2 بيضة مسلوقة</li>
+        </ul>
+      </div>
+    </details>
   </div>
 
-  <!-- متابعة التمرين -->
-  <div class="card">
-    <h3>🏋️ متابعة التمرين في النادي</h3>
-    <div style="display: grid; grid-template-columns: repeat(6, 1fr); gap: 10px; margin-top: 15px;">
-      <!-- 30 مربع -->
-      <div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div>
-      <div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div>
-      <div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div>
-      <div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div>
-      <div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div>
-    </div>
-    
+  <!-- متابعة الشهر الأول -->
+  <div class="section">
+    <details>
+      <summary><h2>📅 الشهر الأول</h2></summary>
+      <div class="card">
+        <h3>📝 متابعة الوزن</h3>
+        <ul>
+          <li>الأسبوع الأول: لم يتم تسجيل وزن حاليا</li>
+          <li>الأسبوع الثاني: لم يتم تسجيل وزن حاليا</li>
+          <li>الأسبوع الثالث: لم يتم تسجيل وزن حاليا</li>
+          <li>الأسبوع الرابع: لم يتم تسجيل وزن حاليا</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>🏋️ متابعة التمرين في النادي</h3>
+        <div class="grid">
+          <!-- 30 مربع -->
+          <div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div>
+          <div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div>
+          <div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div>
+          <div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div>
+          <div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div><div>❌</div>
+        </div>
+      </div>
+    </details>
   </div>
+
+  <div class="section">
+  <details>
+    <summary><h2>💪 An Body</h2></summary>
+
+    <div class="card">
+      <h3>📅 الأسبوع الأول</h3>
+      <img src="images/week1.jpg" alt="صورة الأسبوع الأول" style="max-width:100%; border-radius:10px;">
+    </div>
+
+    <div class="card">
+      <h3>📅 الأسبوع الثاني</h3>
+      <img src="images/week2.jpg" alt="صورة الأسبوع الثاني" style="max-width:100%; border-radius:10px;">
+    </div>
+
+    <div class="card">
+      <h3>📅 الأسبوع الثالث</h3>
+      <img src="images/week3.jpg" alt="صورة الأسبوع الثالث" style="max-width:100%; border-radius:10px;">
+    </div>
+
+    <div class="card">
+      <h3>📅 الأسبوع الرابع</h3>
+      <img src="images/week4.jpg" alt="صورة الأسبوع الرابع" style="max-width:100%; border-radius:10px;">
+    </div>
+
+  </details>
 </div>
 
 </body>
