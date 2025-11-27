@@ -231,6 +231,209 @@
       <h3>📅 الأسبوع الرابع</h3>
       <img src="images/week4.jpg" alt="صورة الأسبوع الرابع" style="max-width:100%; border-radius:10px;">
     </div>
+<!-- قسم: تطور الجسم -->
+<section id="body-progress" dir="rtl" style="margin:24px 0;">
+  <header class="bp-header">
+    <div class="bp-title">
+      <span class="bp-icon">🏋️‍♂️</span>
+      <h2>تطور الجسم</h2>
+    </div>
+    <p class="bp-sub">توثيق بصري للتقدم أسبوعيًا – صور بدون وجه حفاظًا على الخصوصية</p>
+  </header>
+
+  <!-- قفل الرمز -->
+  <div class="bp-lock" id="bp-lock">
+    <label for="bp-pin" class="bp-label">أدخل الرمز السري (٤ أرقام):</label>
+    <div class="bp-input-row">
+      <input id="bp-pin" type="password" inputmode="numeric" maxlength="4" pattern="[0-9]{4}" placeholder="••••" aria-label="رمز سري من أربع أرقام">
+      <button id="bp-unlock" class="bp-btn">فتح</button>
+    </div>
+    <p class="bp-hint">هذا القفل واجهة فقط لخصوصية العرض.</p>
+  </div>
+
+  <!-- المحتوى المخفي -->
+  <div class="bp-content is-blurred" id="bp-content" hidden>
+    <!-- شريط أدوات القسم -->
+    <div class="bp-toolbar">
+      <button id="bp-hide" class="bp-btn secondary">إخفاء</button>
+      <span class="bp-status">القسم مفتوح</span>
+    </div>
+
+    <!-- شبكة الصور -->
+    <div class="bp-grid">
+      <!-- أمثلة: غيّر المسارات إلى صورك -->
+      <figure class="bp-card">
+        <img src="images/body/week-01-front.jpg" alt="أسبوع 1 - أمامي">
+        <figcaption>أسبوع 1 – أمامي</figcaption>
+      </figure>
+
+      <figure class="bp-card">
+        <img src="images/body/week-01-side.jpg" alt="أسبوع 1 - جانبي">
+        <figcaption>أسبوع 1 – جانبي</figcaption>
+      </figure>
+
+      <figure class="bp-card">
+        <img src="images/body/week-02-front.jpg" alt="أسبوع 2 - أمامي">
+        <figcaption>أسبوع 2 – أمامي</figcaption>
+      </figure>
+
+      <!-- أضف المزيد حسب الحاجة -->
+    </div>
+  </div>
+</section>
+
+<style>
+  /* مظهر عام */
+  .bp-header { 
+    padding: 16px; 
+    border-radius: 16px; 
+    background: linear-gradient(120deg, #1f2937 0%, #0f172a 50%, #111827 100%);
+    color: #fff; 
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    backdrop-filter: saturate(1.1) blur(8px);
+  }
+  .bp-title { display:flex; align-items:center; gap:10px; }
+  .bp-icon { font-size: 24px; }
+  .bp-sub { margin: 6px 0 0; opacity: .85; }
+
+  .bp-lock {
+    margin-top: 14px; 
+    padding: 14px; 
+    border: 1px solid #e5e7eb; 
+    border-radius: 12px; 
+    background: #f9fafb;
+  }
+  .bp-label { display:block; margin-bottom:8px; color:#374151; }
+  .bp-input-row { display:flex; gap:8px; }
+  .bp-input-row input {
+    flex:1; 
+    padding: 10px 12px; 
+    border: 1px solid #d1d5db; 
+    border-radius: 10px; 
+    font-size: 16px; 
+    letter-spacing: 0.2em;
+  }
+  .bp-btn {
+    padding: 10px 14px; 
+    border: none; 
+    border-radius: 10px; 
+    background: #2563eb; 
+    color:#fff; 
+    cursor:pointer;
+    box-shadow: 0 6px 14px rgba(37,99,235,0.25);
+    transition: transform .06s ease;
+  }
+  .bp-btn:active { transform: translateY(1px); }
+  .bp-btn.secondary { background:#6b7280; box-shadow: 0 6px 14px rgba(107,114,128,0.25); }
+  .bp-hint { margin-top:8px; font-size: 13px; color:#6b7280; }
+
+  .bp-content {
+    margin-top: 16px; 
+    border: 1px solid #e5e7eb; 
+    border-radius: 14px; 
+    overflow: hidden;
+  }
+  .bp-toolbar { 
+    display:flex; 
+    justify-content: space-between; 
+    align-items:center; 
+    padding: 10px 12px; 
+    background:#f3f4f6; 
+    border-bottom: 1px solid #e5e7eb;
+  }
+  .bp-status { font-size: 13px; color:#374151; }
+
+  /* شبكة الصور */
+  .bp-grid {
+    display:grid; 
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); 
+    gap: 12px; 
+    padding: 12px;
+    background: #fff;
+  }
+  .bp-card {
+    border: 1px solid #e5e7eb; 
+    border-radius: 12px; 
+    overflow:hidden; 
+    background:#fafafa;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+  }
+  .bp-card img { 
+    width:100%; 
+    height: 220px; 
+    object-fit: cover; 
+    object-position: center; 
+    filter: contrast(1.02) saturate(1.02);
+  }
+  .bp-card figcaption { 
+    padding: 8px 10px; 
+    font-size: 14px; 
+    color:#374151;
+  }
+
+  /* تأثير الضباب حتى بعد التحميل (قبل الفتح) */
+  .is-blurred { filter: blur(8px); pointer-events: none; }
+</style>
+
+<script>
+  // عدّل الرمز هنا (٤ أرقام)
+  const PIN = "1234"; // مثال: 0987
+
+  const $lock = document.getElementById('bp-lock');
+  const $pin = document.getElementById('bp-pin');
+  const $unlock = document.getElementById('bp-unlock');
+  const $content = document.getElementById('bp-content');
+  const $hide = document.getElementById('bp-hide');
+
+  // افتح تلقائيًا إذا سبق فتح القسم خلال الجلسة
+  if (sessionStorage.getItem('bp-unlocked') === 'true') {
+    revealContent();
+  }
+
+  $unlock.addEventListener('click', tryUnlock);
+  $pin.addEventListener('keyup', (e) => {
+    if (e.key === 'Enter') tryUnlock();
+  });
+
+  $hide.addEventListener('click', () => {
+    $content.hidden = true;
+    $lock.style.display = '';
+    $content.classList.add('is-blurred');
+    sessionStorage.removeItem('bp-unlocked');
+    $pin.value = '';
+    $pin.focus();
+  });
+
+  function tryUnlock() {
+    const value = ($pin.value || '').trim();
+    if (!/^\d{4}$/.test(value)) {
+      shake($pin);
+      return;
+    }
+    if (value === PIN) {
+      revealContent();
+      sessionStorage.setItem('bp-unlocked', 'true');
+    } else {
+      shake($pin);
+      // امسح الإدخال لمرة واحدة لتعزيز الخصوصية
+      $pin.value = '';
+      $pin.focus();
+    }
+  }
+
+  function revealContent() {
+    $lock.style.display = 'none';
+    $content.hidden = false;
+    $content.classList.remove('is-blurred');
+  }
+
+  function shake(el) {
+    el.style.transition = 'transform 80ms ease';
+    el.style.transform = 'translateX(3px)';
+    setTimeout(() => { el.style.transform = 'translateX(-3px)'; }, 80);
+    setTimeout(() => { el.style.transform = 'translateX(0)'; }, 160);
+  }
+</script>
 
   </details>
 </div>
